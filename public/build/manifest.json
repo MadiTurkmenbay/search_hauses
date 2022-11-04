@@ -8,15 +8,15 @@
     "src": "resources/fonts/Rubik-Bold.ttf"
   },
   "resources/js/app.js": {
-    "file": "assets/app.4a3f2de0.js",
+    "file": "assets/app.24995b04.js",
     "src": "resources/js/app.js",
     "isEntry": true,
     "css": [
-      "assets/app.18daa156.css"
+      "assets/app.2d3d836a.css"
     ]
   },
   "resources/js/app.css": {
-    "file": "assets/app.18daa156.css",
+    "file": "assets/app.2d3d836a.css",
     "src": "resources/js/app.css"
   },
   "resources/css/app.scss": {
