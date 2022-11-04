@@ -8,32 +8,32 @@
         </el-form-item>
         <el-form-item label="Price(Min-max)">
           <el-col :span="11">
-            <el-input v-model="form.name"/>
+            <el-input v-model="form.min_price"/>
           </el-col>
           <el-col class="text-center" :span="1" style="margin: 0 0.5rem">-</el-col>
           <el-col :span="11">
-            <el-input v-model="form.name"/>
+            <el-input v-model="form.max_price"/>
           </el-col>
 
         </el-form-item>
         <el-form-item label="Bedrooms">
-          <el-input v-model="form.name"/>
+          <el-input v-model="form.bedrooms"/>
         </el-form-item>
         <el-form-item label="Bathrooms">
-            <el-input v-model="form.name"/>
+            <el-input v-model="form.bathrooms"/>
         </el-form-item>
         <el-form-item label="Storeys">
-            <el-input v-model="form.name"/>
+            <el-input v-model="form.storeys"/>
         </el-form-item>
         <el-form-item label="Garages">
-            <el-input v-model="form.name"/>
+            <el-input v-model="form.garages"/>
         </el-form-item>
         <el-form-item class="submit_buttons">
-          <el-button type="primary" @click="onSubmit">Search</el-button>
-          <el-button type="danger" @click="onSubmit">Clear</el-button>
+          <el-button type="primary" :disabled="loading" @click="onSubmit">Search</el-button>
+          <el-button type="danger" :disabled="loading" @click="clear">Clear</el-button>
         </el-form-item>
       </el-form>
-      <el-table :data="tableData" style="width: 100%">
+      <el-table :data="tableData" v-loading="loading" empty-text="Nothing was found for your query" style="width: 100%">
         <el-table-column prop="name" label="Name" />
         <el-table-column prop="price" label="Price" width="180"/>
         <el-table-column prop="bedrooms" label="Bedrooms" width="180"/>
@@ -52,32 +52,39 @@ export default {
   name: "search",
   data() {
     return {
-      form: reactive({
+      initialState: {
         name: '',
-        price: '',
+        min_price: '',
+        max_price: '',
         bedrooms: '',
         bathrooms: '',
         storeys: '',
         garages: []
-      }),
-      tableData: [
-
-      ],
+      },
+      form: reactive({...this.initialState}),
+      tableData: [],
       loading: false,
-
     }
   },
   created() {
     this.getHouses()
   },
   methods: {
+    clear(){
+      Object.assign(this.form, this.initialState);
+      this.onSubmit()
+    },
     onSubmit() {
-      alert('submit!')
+      this.getHouses(this.form)
     },
     getHouses(params = {}) {
+      this.loading = true;
       this.$api.houses.get(params).then(res => {
+        this.loading = false;
         this.tableData = res.data
-      })
+      }).catch(() => {
+        this.loading = false;
+      });
     }
   }
 }
