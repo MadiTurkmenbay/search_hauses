@@ -1,5 +1,7 @@
 <template>
-<h1>404</h1>
+  <section class="main">
+    <h1><span>404</span> - Page Not Found</h1>
+  </section>
 </template>
 
 <script>
@@ -8,6 +10,17 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
+  .main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h1{
+      font-size: 32px;
+      color: #e2e8f0;
+      span{
+        color: #EE3B2E;
+      }
+    }
+  }
 </style>

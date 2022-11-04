@@ -14,7 +14,6 @@
           <el-col :span="11">
             <el-input v-on:keyup.enter="onSubmit" v-model="form.max_price"  placeholder="Max price"/>
           </el-col>
-
         </el-form-item>
         <el-form-item label="Bedrooms">
           <el-input v-on:keyup.enter="onSubmit" v-model="form.bedrooms" placeholder="0"/>

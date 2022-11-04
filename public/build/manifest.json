@@ -1,0 +1,27 @@
+{
+  "resources/fonts/Rubik-Regular.ttf": {
+    "file": "assets/Rubik-Regular.0ead1f3f.ttf",
+    "src": "resources/fonts/Rubik-Regular.ttf"
+  },
+  "resources/fonts/Rubik-Bold.ttf": {
+    "file": "assets/Rubik-Bold.26d52674.ttf",
+    "src": "resources/fonts/Rubik-Bold.ttf"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app.4a3f2de0.js",
+    "src": "resources/js/app.js",
+    "isEntry": true,
+    "css": [
+      "assets/app.18daa156.css"
+    ]
+  },
+  "resources/js/app.css": {
+    "file": "assets/app.18daa156.css",
+    "src": "resources/js/app.css"
+  },
+  "resources/css/app.scss": {
+    "file": "assets/app.be9e721a.css",
+    "src": "resources/css/app.scss",
+    "isEntry": true
+  }
+}

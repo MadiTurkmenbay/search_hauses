@@ -6,8 +6,8 @@ import E404 from '../pages/errors/404.vue'
 
 
 export default [
-    {path: '/', name: 'welcome', component: Welcome},
-    {path: '/search', name: 'search', component: Search},
+    {path: '/', name: 'welcome', meta: {title: 'Welcome Page'}, component: Welcome},
+    {path: '/search', name: 'search', meta: {title: 'Houses list'}, component: Search},
 
-    {path: '/:pathMatch(.*)*', component: E404}
+    {path: '/:pathMatch(.*)*',  meta: {title: 'Not Found'}, component: E404}
 ]
