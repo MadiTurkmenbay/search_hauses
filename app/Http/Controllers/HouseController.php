@@ -17,7 +17,7 @@ class HouseController extends Controller
         $storeys = $request->storeys;
         $garages = $request->garages;
 
-        sleep(5);
+        sleep(1); // for loader
         $house = House::query()
             ->when($name, function ($query) use ($name) {
                 return $query->where("name", 'like', "%$name%");
@@ -36,6 +36,9 @@ class HouseController extends Controller
             })
             ->when($min_price, function ($query) use ($min_price) {
                 return $query->where("price", '>', $min_price);
+            })
+            ->when($max_price, function ($query) use ($max_price) {
+                return $query->where("price", '<', $max_price);
             })
             ->get();
         return response()->json($house);

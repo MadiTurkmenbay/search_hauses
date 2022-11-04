@@ -4,29 +4,29 @@
       <h1>Search with filters</h1>
       <el-form :inline="true" label-position="top" :model="form" label-width="120px">
         <el-form-item label="Name">
-          <el-input v-model="form.name"/>
+          <el-input v-on:keyup.enter="onSubmit" v-model="form.name" placeholder="The Vict..."/>
         </el-form-item>
         <el-form-item label="Price(Min-max)">
           <el-col :span="11">
-            <el-input v-model="form.min_price"/>
+            <el-input v-on:keyup.enter="onSubmit" v-model="form.min_price" placeholder="Min price"/>
           </el-col>
           <el-col class="text-center" :span="1" style="margin: 0 0.5rem">-</el-col>
           <el-col :span="11">
-            <el-input v-model="form.max_price"/>
+            <el-input v-on:keyup.enter="onSubmit" v-model="form.max_price"  placeholder="Max price"/>
           </el-col>
 
         </el-form-item>
         <el-form-item label="Bedrooms">
-          <el-input v-model="form.bedrooms"/>
+          <el-input v-on:keyup.enter="onSubmit" v-model="form.bedrooms" placeholder="0"/>
         </el-form-item>
         <el-form-item label="Bathrooms">
-            <el-input v-model="form.bathrooms"/>
+            <el-input v-on:keyup.enter="onSubmit" v-model="form.bathrooms" placeholder="0"/>
         </el-form-item>
         <el-form-item label="Storeys">
-            <el-input v-model="form.storeys"/>
+            <el-input v-on:keyup.enter="onSubmit" v-model="form.storeys" placeholder="0"/>
         </el-form-item>
         <el-form-item label="Garages">
-            <el-input v-model="form.garages"/>
+            <el-input v-on:keyup.enter="onSubmit" v-model="form.garages" placeholder="0"/>
         </el-form-item>
         <el-form-item class="submit_buttons">
           <el-button type="primary" :disabled="loading" @click="onSubmit">Search</el-button>
